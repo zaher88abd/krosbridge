@@ -13,10 +13,7 @@ import org.json.JSONObject
  */
 
 abstract class JsonWrapper {
-    /**
-     * The String representation of an empty message in JSON.
-     */
-    private val EMPTY_JSON = "{}"
+
 
     private lateinit var jsonObject: JSONObject
     private lateinit var jsonString: String
@@ -41,7 +38,7 @@ abstract class JsonWrapper {
      *
      * @return The JSON object.
      */
-    open fun toJsonObject(): JSONObject? {
+    open fun toJsonObject(): JSONObject {
         return jsonObject
     }
 
@@ -80,5 +77,12 @@ abstract class JsonWrapper {
     open fun equals(o: Any): Boolean {
         return o === this || o is JsonWrapper && jsonString == o
             .toString()
+    }
+
+    /**
+     * The String representation of an empty message in JSON.
+     */
+    companion object {
+        val EMPTY_JSON: String = "{}"
     }
 }

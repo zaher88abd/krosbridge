@@ -3,7 +3,7 @@ package ca.zaher88abd.krosbridge.services
 import ca.zaher88abd.krosbridge.JsonWrapper
 import org.json.JSONObject
 
-class ServiceResponse : JsonWrapper {
+open class ServiceResponse : JsonWrapper {
 
     private var serviceResponseType: String
     private var result: Boolean
@@ -12,7 +12,7 @@ class ServiceResponse : JsonWrapper {
         jsonObject: JSONObject? = null,
         jsonString: String? = null,
         serviceResponseType: String = "",
-        result: Boolean
+        result: Boolean = true
     ) : super(jsonObject, jsonString) {
         this.serviceResponseType = serviceResponseType
         this.result = result
